@@ -8,8 +8,10 @@ fun main () {
   println("-----------------------")
   println("Digite uma opção:")
   
-  var saldo:Double = 0.0
-  val opcao: Int? = readln()
+  var saldo: Double = 0.0
+  val opcao = readln().toIntOrNull().trim()
+  var adc: Double = 0.0
+  var sub: Double = 0.0
   
   when (opcao) {
     "1" -> println("Vamos depositar!
@@ -19,9 +21,29 @@ fun main () {
   }
   
   do {
-    
-    
-    
+    if (opcao in 0..2) {
+      when(opcao){
+        "1" -> {
+          println("Qual o valor do depósito?")
+          adc: Double? = readln().trim()
+          saldo += adc
+          println("Seu saldo atual é: R$ $saldo")
+          }
+          
+        "2" -> {
+          println("Qual o valor do saque?")
+          sub: Double? = readln().trim()
+          if(saldo <= sub) {
+            println("Não há saldo suficiente. É necessário adicionar fundos!")
+            break
+          }
+        }
+        }
+      } else {
+      println("Cancelando a operação...")
+        break
+      }
+      }
+    }
   } while (opção != 0)
-  
 }
