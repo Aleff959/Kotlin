@@ -9,7 +9,7 @@ fun main () {
   println("Digite uma opção:")
   
   var saldo: Double = 0.0
-  val opcao = readln().toIntOrNull().trim()
+  val opcao = readln().trim().toIntOrNull()
   var adc: Double = 0.0
   var sub: Double = 0.0
   
@@ -23,19 +23,23 @@ fun main () {
   do {
     if (opcao in 0..2) {
       when(opcao){
-        "1" -> {
+        1 -> {
           println("Qual o valor do depósito?")
           adc: Double? = readln().trim()
           saldo += adc
           println("Seu saldo atual é: R$ $saldo")
           }
           
-        "2" -> {
+        2 -> {
           println("Qual o valor do saque?")
           sub: Double? = readln().trim()
           if(saldo <= sub) {
             println("Não há saldo suficiente. É necessário adicionar fundos!")
             break
+          } else if (saldo >= sub){
+            saldo -= sub
+            println("Saque concluído com sucesso!")
+            println("Seu saldo atual é: R$ $saldo")
           }
         }
         }
