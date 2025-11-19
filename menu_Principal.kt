@@ -1,5 +1,7 @@
-fun main () {
-  
+fun exibirMenu():int? {
+
+  imprimirCabecalho("Caixa Eletrônico")
+
   println("Caixa Eletrônico")
   println("-----------------------")
   println("1 - Depósito")
@@ -7,17 +9,9 @@ fun main () {
   println("0 - Sair")
   println("-----------------------")
   println("Selecione uma opção:")
-  
-  val opcao_menu_1: String = readln().trim().toIntOrNull()
-  
-  do {
-    if (opcao_menu_1 != null || opcao_menu_1 in 0..2){
     
-      deposito()
-      
-    }
-    
-  } while (opcao_menu_1)
   
+  val op_menu = readln().trim().toIntOrNull()
   
+  return op_menu
 }
