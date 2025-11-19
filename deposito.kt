@@ -11,13 +11,13 @@ fun deposito() {
   val entradaDeposito = readln().trim()
   val adcSaldo: Double? = entradaDeposito.toDoubleOrNull()
   
-  if (adcSaldo != null && adcSaldo >=0.01) {
+  if (adcSaldo != null && adcSaldo >= 0.01) {
     
     println("Adicionando saldo à sua conta...")
     saldo += adcSaldo
     println("""
     Saldo adicionado!!!
-    ---Seu saldo atual é: R$ ${"%.2f.format(saldo)"}---
+    ---Seu saldo atual é: R$ ${"%.2f".format(saldo)}---
     """)
     println("--------------------------")
     println("Voltando ao menu principal...")
@@ -30,10 +30,10 @@ fun deposito() {
     return
     
   } else {
-    
-    println("Erro! Por favor, tente novamente.")
-    println("Voltando ao menu principal")
-    return
-    
+    // Caso: adcSaldo é NULL
+  println("Erro de formato! Por favor, insira um valor numérico (Ex: 50.00).")
+  println("Voltando ao menu principal")
+  return
+  
   }
 }
