@@ -1,7 +1,6 @@
  fun main () {
    
-  var opcao:int?
-  
+  var opcao:int? = null
   
   do {
     opcao = menu()
@@ -15,8 +14,5 @@
     } else {
       println("Comando não reconhecido. Tente novamente!")
     }
-    
   } while (opcao != 0)
-  
-  
 }
