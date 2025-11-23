@@ -12,16 +12,19 @@ fun saque() {
     
     println("Erro de formato! Por favor, insira um valor numérico (Ex: 50.00).")
     println("Voltando ao menu principal")
+    println("--------------------------")
     return
     
   } else if (saqueSaldo <= 0.0) {
     println("O valor do saque deve ser maior que R$ 0,00.")
     println("Seu saldo atual é: R$ ${"%.2f".format(saldo)}")
+    println("--------------------------")
     return
       
   } else if (saqueSaldo > saldo) {
       println("Saldo insuficiente. Adicione antes de sacar!")
       println("Seu saldo atual é: R$ ${"%.2f".format(saldo)}")
+      println("--------------------------")
       return
       
   } else {
@@ -34,6 +37,7 @@ fun saque() {
       -------------------------------
       """)
       println("Voltando ao menu principal...")
+      println("--------------------------")
       return
   }
 }

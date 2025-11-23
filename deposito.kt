@@ -25,22 +25,26 @@ fun deposito() {
       saldo += adcSaldo
       println("""
       Saldo adicionado!!!
+      println("--------------------------")
       ---Seu saldo atual é: R$ ${"%.2f".format(saldo)}---
       """)
       println("--------------------------")
       println("Voltando ao menu principal...")
+      println("--------------------------")
       return
       
     } else if (adcSaldo != null && adcSaldo <= 0.0) {
       
       println("É necessário adicionar um valor acima de: R$ 0.0")
       println("Voltando ao menu principal")
+      println("--------------------------")
       return
       
     } else {
       // Caso: adcSaldo é NULL
     println("Erro de formato! Por favor, insira um valor numérico (Ex: 50.00).")
     println("Voltando ao menu principal")
+    println("--------------------------")
     return
     
     }
