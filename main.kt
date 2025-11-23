@@ -1,9 +1,9 @@
  fun main () {
    
-  var opcao:int? = null
+  var opcao: Int?
   
   do {
-    opcao = menu()
+    opcao = exibirMenu()
     when(opcao) {
     
     1 -> deposito()
@@ -11,8 +11,7 @@
     0 -> println("Encerando a operação...")
     null -> println("""Erro: comando inválido!!!
     Digite apenas 1, 2 ou 0 para sair.""")
-    } else {
-      println("Comando não reconhecido. Tente novamente!")
+    else -> println("Comando não reconhecido. Tente novamente!")
     }
   } while (opcao != 0)
 }

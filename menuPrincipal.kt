@@ -1,4 +1,4 @@
-fun exibirMenu():int? {
+fun exibirMenu(): Int? {
 
   imprimirCabecalho("Caixa Eletrônico")
 
