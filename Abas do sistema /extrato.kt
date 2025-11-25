@@ -12,8 +12,8 @@ fun extrato() {
     
     1 -> {
     println("""
-Cliente: [NOME DO CLIENTE]
-Agência: [AGÊNCIA] | Conta: [CONTA-DÍGITO]
+Cliente: [$nameID]
+Agência: [$agencia] | Conta: [$conta]
 Horário:
 ----------------------------------------
 Saldo em conta: R$ ${"%.2f".format(saldo)}
@@ -22,8 +22,8 @@ Saldo em conta: R$ ${"%.2f".format(saldo)}
   }
     2 -> {
     println("""
-Cliente: [NOME DO CLIENTE]
-Agência: [AGÊNCIA] | Conta: [CONTA-DÍGITO]
+Cliente: [$nameID]
+Agência: [$agencia] | Conta: [$conta]
 Horário:
 ----------------------------------------
 DATA | DESCRICAO | VALOR  | SALDO
