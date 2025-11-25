@@ -1,58 +1,49 @@
 fun cadastro() {
   
   bordas()
-  imprimirCabecalho("Caixa Eletrônico")
   imprimirCabecalho("Cadastro")
   
-  println("""Seu banco é Tem agência física?
-  1 - Sim
-  2 - Não 
-  3 - Não tenho certeza 
-  """)
+  println ("Digite seu nome completo:")
+  val nameID: String = readlnOrNull().orEmpty().trim().lowercase()
   
-  val fisicoOuVirtual = readlnOrNull().trim().toIntOrNull()
+  println ("Qual sua idade?:")
+  val ageID: Int? = readlnOrNull().orEmpty().trim().toIntOrNull()
   
-  when(fisicoOuVirtual) {
-    if(fisicoOuVirtual in 1..3){
-      1 -> {
-      
-      println("Lista de Bancos com Agência Física:")
-      println("$bankListF")
-      bordas()
-      println("Digite a opção correspondente ao seu banco:")
-      val meuBancoF = readlnOrNull().trim().toIntOrNull()
-      return
-      }
-      2 -> {
-      
-      println("Lista de Bancos Sem Agenda Física:")
-      println("$bankListI")
-      bordas()
-      
-      }
-      3 -> {
-      
-      println("Lista de bancos, com e sem Agência Física")
-      println("$bankListF")
-      bordas()
-      
-    }else if (fisicoOuVirtual == null {
-      
-      println("Opção não reconhecida! Escolha entre 1, 2 e 3.")
-      return
-      
-    }else{
+  if (ageID == null || ageID <= 16) {
+        println("❌ Idade inválida. Cadastro cancelado.")
+        return
+    }
+  
+  println("Digite o seu nome de usuário:")
+  val userName: String = readlnOrNull().orEmpty().trim()
+  
+  println("Digite sua senha de usuário:")
+  val passwordUser = readlnOrNull().orEmpty().trim()
+  
+  if (nameID.isBlank() || userName.isBlank() || passwordUser.isBlank()) {
+        println("❌ Campos essenciais não podem ser vazios. Cadastro cancelado.")
+        return
+    }
+  
+  val novaAgencia = AGENCIA_PADRAO
+    val novaConta = gerarNumeroDeConta()
     
-      println("Opção inválido! Escolha entre 1, 2 e 3.")
-      return
-      
+    if (listaDeUsuarios.any { it.conta == novaConta }) {
+        println("⚠️ Erro: Conta gerada já existe. Tente novamente.")
+        return
     }
-  }
-  
-  println("Digite a opção correspondente ao seu banco:")
-  val meuBanco = readln().trim().toIntOrNull()
-  
-    }
-    }
-  }
-}
+
+    val novoUsuario = Usuario(
+        nome = nameID,
+        idade = ageID,
+        nomeUsuario = userName,
+        senha = passwordUser,
+        agencia = novaAgencia,
+        conta = novaConta 
+    )
+
+    listaDeUsuarios.add(novoUsuario)
+
+    println("\n✅ Usuário ${userName} cadastrado com sucesso!")
+    println("Detalhes: Conta **${novaConta}**, Agência **${novaAgencia}**.")
+    println("Total de usuários cadastrados: ${listaDeUsuarios.size}")
