@@ -26,7 +26,7 @@ Cliente: [NOME DO CLIENTE]
 Agência: [AGÊNCIA] | Conta: [CONTA-DÍGITO]
 Horário:
 ----------------------------------------
-DATA    | DESCRICAO    | VALOR  | SALDO
+DATA | DESCRICAO | VALOR  | SALDO
 ----------------------------------------
 20/11   | SALDO ANTERIOR          | + R$ 1.500,50    | R$ 1.500,50 
 21/11   | PIX ENVIADO             | - R$ 500,00      | R$ 1.000,50
