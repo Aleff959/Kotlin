@@ -14,3 +14,52 @@ fun imprimirExtrato(titulo: String){
 fun bordas() {
     println("=======================================")
 }
+
+fun bankListF() {
+    
+    val bancoF: List<String> = listOf(
+    "1. Banco do Brasil",
+    "2. Caixa Econômica Federal",
+    "3. Itaú Unibanco",
+    "4. Bradesco",
+    "5. Santander Brasil",
+    "6. Banco Safra",
+    "7. Banco Mercantil do Brasil",
+    "8. Banco Votorantim",
+    "9. Banco Pan",
+    "10. Banco BMG",
+    "11. BRB - Banco de Brasília",
+    "12. Banrisul",
+    "13. Banco da Amazônia",
+    "14. Banco do Nordeste do Brasil",
+    "15. Banco Alfa",
+    "16. Banco Daycoval",
+    "17. Banco Citibank S.A.",
+    "18. Banco Industrial do Brasil",
+    "19. Sicoob",
+    "20. Sicredi"
+    )
+}
+ 
+fun bankListI() {
+    
+val instituicoesDePagamento: List<String> = listOf(
+    "1. Nubank",
+    "2. PicPay",
+    "3. Mercado Pago",
+    "4. PagBank",
+    "5. Stone",
+    "6. Cielo",
+    "7. Rede",
+    "8. Getnet",
+    "9. RecargaPay",
+    "10. Ame Digital",
+    "11. C6 Bank",
+    "12. Banco Inter",
+    "13. Affinpay",
+    "14. Ebanx",
+    "15. MaxiPago",
+    "16. Wirecard",
+    "17. Zoop"
+    )
+}
