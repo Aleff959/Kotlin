@@ -63,3 +63,22 @@ val instituicoesDePagamento: List<String> = listOf(
     "17. Zoop"
     )
 }
+
+import kotlin.random.Random
+
+data class Usuario(
+    val nome: String,
+    val idade: Int,
+    val nomeUsuario: String,
+    val senha: String,
+    val agencia: String, 
+    val conta: String
+)
+
+val listaDeUsuarios = mutableListOf<Usuario>()
+const val AGENCIA_PADRAO = "0001" 
+
+fun gerarNumeroDeConta(): String {
+    val numero = Random.nextInt(100000, 1000000)
+    return numero.toString()
+}
