@@ -65,6 +65,7 @@ val instituicoesDePagamento: List<String> = listOf(
 }
 
 import kotlin.random.Random
+import kotlin.system.exitProcess
 
 data class Usuario(
     val nome: String,
