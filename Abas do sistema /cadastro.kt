@@ -26,9 +26,7 @@ fun cadastro() {
     }
   
   val novaAgencia = AGENCIA_PADRAO
-    val novaConta = gerarNumeroDeConta()
-    
-    if (listaDeUsuarios.any { it.conta == novaConta }) {
+  val novaConta = gerarNumeroDeConta()if (listaDeUsuarios.any { it.conta == novaConta }) {
         println("⚠️ Erro: Conta gerada já existe. Tente novamente.")
         return
     }
@@ -47,3 +45,5 @@ fun cadastro() {
     println("\n✅ Usuário ${userName} cadastrado com sucesso!")
     println("Detalhes: Conta **${novaConta}**, Agência **${novaAgencia}**.")
     println("Total de usuários cadastrados: ${listaDeUsuarios.size}")
+    
+    return
