@@ -1,4 +1,12 @@
+data class Transacao(
+    val data: String,        // Ex: 27/11
+    val descricao: String,
+    val valor: Double,       // Positivo para depósito, negativo para saque
+    val saldoApos: Double    // Saldo após a transação
+)
+
 var saldo: Double = 0.0
+val transacoes: MutableList<Transacao> = mutableListOf()
 
 fun imprimirCabecalho(titulo: String){
     println("\n---------$titulo---------")
@@ -15,6 +23,7 @@ fun bordas() {
     println("=======================================")
 }
 
+/*
 fun bankListF() {
     
     val bancoF: List<String> = listOf(
@@ -41,31 +50,30 @@ fun bankListF() {
     )
 }
  
-fun bankListI() {
-    
-val instituicoesDePagamento: List<String> = listOf(
-    "1. Nubank",
-    "2. PicPay",
-    "3. Mercado Pago",
-    "4. PagBank",
-    "5. Stone",
-    "6. Cielo",
-    "7. Rede",
-    "8. Getnet",
-    "9. RecargaPay",
-    "10. Ame Digital",
-    "11. C6 Bank",
-    "12. Banco Inter",
-    "13. Affinpay",
-    "14. Ebanx",
-    "15. MaxiPago",
-    "16. Wirecard",
-    "17. Zoop"
-    )
-}
+    fun bankListI() {
+        
+    val instituicoesDePagamento: List<String> = listOf(
+        "1. Nubank",
+        "2. PicPay",
+        "3. Mercado Pago",
+        "4. PagBank",
+        "5. Stone",
+        "6. Cielo",
+        "7. Rede",
+        "8. Getnet",
+        "9. RecargaPay",
+        "10. Ame Digital",
+        "11. C6 Bank",
+        "12. Banco Inter",
+        "13. Affinpay",
+        "14. Ebanx",
+        "15. MaxiPago",
+        "16. Wirecard",
+        "17. Zoop"
+        )
+    }
 
-import kotlin.random.Random
-import kotlin.system.exitProcess
+*/
 
 data class Usuario(
     val nome: String,
@@ -82,4 +90,15 @@ const val AGENCIA_PADRAO = "0001"
 fun gerarNumeroDeConta(): String {
     val numero = Random.nextInt(100000, 1000000)
     return numero.toString()
+}
+
+fun horaFormat(): String {
+    val agora = LocalDateTime.now()
+    val formatador = DateTimeFormatter.ofPattern("dd/MM/yy HH:mm:ss")
+    return agora.format(formatador)
+}
+
+fun diaFormat(): String {
+    val formatador = DateTimeFormatter.ofPattern("dd/MM")
+    return LocalDateTime.now().format(formatador)
 }
