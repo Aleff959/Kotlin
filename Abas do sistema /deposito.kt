@@ -10,7 +10,7 @@ fun deposito() {
   """)
   println("----------------------------")
 
-  val entradaDeposito = readln().trim().uppercase()
+  val entradaDeposito = readln().trim()replace(",", ".").uppercase()
   val adcSaldo: Double? = entradaDeposito.toDoubleOrNull()
   
   if(entradaDeposito == "CANCELAR") {
@@ -23,6 +23,12 @@ fun deposito() {
       
       println("Adicionando saldo à sua conta...")
       saldo += adcSaldo
+      transacoes.add(Transacao(
+          data = obterApenasData(), 
+          descricao = "DEPÓSITO", 
+          valor = adcSaldo, 
+          saldoApos = saldo
+      ))
       println("""
       Saldo adicionado!!!
       println("--------------------------")
