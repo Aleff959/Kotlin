@@ -1,42 +1,67 @@
-fun extrato() {
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import kotlin.math.abs
+
+fun extrato(nameID: String, agencia: String, conta: String, saldo: Double, transacoes: List<Transacao>, imprimirExtrato: (String) -> Unit, bordas: () -> Unit) {
   
-  imprimirExtrato("Extrato Bancário")
-  
-  println("1 - Extrato Simplificado")
-  println("2 - Extrato Completo")
-  println("0 - Sair")
-  
-  val opcaoExtrato = readln().trim.toIntOrNull()
-  
-  when(opcaoExtrato) {
+  var opcaoExtrato: Int? = null
     
-    1 -> {
-    println("""
+  do {
+    imprimirExtrato("Extrato Bancário")
+    
+    println("1 - Extrato Simplificado")
+    println("2 - Extrato Completo")
+    println("0 - Sair")
+    
+    opcaoExtrato = readln().trim().toIntOrNull()
+    
+    when(opcaoExtrato) {
+      
+      1 -> {
+          println("""
 Cliente: [$nameID]
 Agência: [$agencia] | Conta: [$conta]
-Horário:
+Horário: ${horaFormat()}
 ----------------------------------------
 Saldo em conta: R$ ${"%.2f".format(saldo)}
-    """)
-    bordas()
-  }
-    2 -> {
-    println("""
+          """)
+          bordas()
+      }
+      
+      2 -> {
+          println("""
 Cliente: [$nameID]
 Agência: [$agencia] | Conta: [$conta]
-Horário:
+Horário: ${horaFormat()}
 ----------------------------------------
-DATA | DESCRICAO | VALOR  | SALDO
-----------------------------------------
-20/11   | SALDO ANTERIOR          | + R$ 1.500,50    | R$ 1.500,50 
-21/11   | PIX ENVIADO             | - R$ 500,00      | R$ 1.000,50
-22/11   | DEPÓSITO TED            | + R$ 800,00      | R$ 1.800,50
-23/11   | COMPRA FARMÁCIA         | - R$ 55,30       | R$ 1.745,20
-24/11   | PIX RECEBIDO            | + R$ 250,00      | R$ 1.995,20
----------------------------------------
-SALDO FINAL: R$ ${"%.2f".format(saldo)}    """)
-    bordas()
-  }
-    3 -> return
-  }
+DATA | DESCRICAO | VALOR | SALDO
+----------------------------------------""")
+          
+          for (transacao in transacoes) {
+              
+              val valorFormatado = if (transacao.valor >= 0) {
+                  "+ R$ ${"%.2f".format(transacao.valor)}"
+              } else {
+                  "- R$ ${"%.2f".format(abs(transacao.valor))}"
+              }
+              
+              println("${transacao.data.padEnd(4)} | ${transacao.descricao.padEnd(25)} | ${valorFormatado.padEnd(14)} | R$ ${"%.2f".format(transacao.saldoApos)}")
+          }
+          
+          println("---------------------------------------")
+          println("SALDO FINAL: R$ ${"%.2f".format(saldo)}    ")
+          bordas()
+      }
+      
+      0 -> { 
+          println("Saindo do Extrato...")
+      }
+      
+      else -> {
+          if (opcaoExtrato != null) {
+              println("Opção inválida. Digite 1, 2 ou 0.")
+          }
+      }
+    }
+  } while (opcaoExtrato != 0)
 }
