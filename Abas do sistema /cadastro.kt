@@ -1,3 +1,6 @@
+import kotlin.random.Random
+import kotlin.system.exitProcess
+
 fun cadastro() {
   
   bordas()
