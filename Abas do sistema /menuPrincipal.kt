@@ -6,6 +6,7 @@ fun exibirMenu(): Int? {
   println("-----------------------")
   println("1 - Depósito")
   println("2 - Saque")
+  println("3 - Extrato")
   println("0 - Sair")
   println("-----------------------")
   println("Selecione uma opção:")
