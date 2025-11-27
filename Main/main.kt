@@ -8,6 +8,7 @@ fun main () {
     
     1 -> deposito()
     2 -> saque()
+    3 -> extrato()
     0 -> println("Encerando a operação...")
     null -> println("""Erro: comando inválido!!!
     Digite apenas 1, 2 ou 0 para sair.""")
