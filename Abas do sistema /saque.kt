@@ -5,7 +5,7 @@ fun saque() {
   println("Seu saldo atual é: R$ ${"%.2f".format(saldo)}")
   println("Quanto deseja sacar? (Ex: 53.89)")
   
-  val saidaSaldo: String = readln().trim()
+  val saidaSaldo: String = readln().trim().replace(",", ".")
   val saqueSaldo: Double? = saidaSaldo.toDoubleOrNull()
   
   if(saqueSaldo == null) {
@@ -30,6 +30,14 @@ fun saque() {
   } else {
   
       saldo -= saqueSaldo
+      
+      transacoes.add(Transacao(
+          data = obterApenasData(), 
+          descricao = "SAQUE", 
+          valor = -saqueSaldo, // Valor NEGATIVO para saque
+          saldoApos = saldo
+      ))
+      
       println("""
       -------------------------------
       Saque concluído com sucesso!
